@@ -1,2 +1,2 @@
-![](ticket-generator-1.png)
-![](ticket-generator-2.png)
+![](images/ticket-generator-1.png)
+![](images/ticket-generator-2.png)
