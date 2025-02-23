@@ -1,0 +1,232 @@
+@import url('https://fonts.googleapis.com/css2?family=Inconsolata:wght@200..900&family=M+PLUS+Rounded+1c&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+:root {
+    --dark: #222831;
+    --lighter-dark: #31363F;
+    --teal: #408589;
+    --grey: #EEEEEE;
+}
+
+*,
+::before,
+::after {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    color: white;
+    font-family: 'Inconsolata';
+}
+
+body {
+    background-image: url('assets\\images\\background-desktop.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+
+    
+#squiggly1{
+    left:0%;
+    position:absolute;
+    top:50%
+}
+
+#squiggly2{
+    left:75%;
+    position:absolute;
+    top:0%
+}
+
+}
+
+.full-logo {
+    width: 50%;
+    max-width: 200px;
+    margin-left: -5%;
+}
+
+.ticket-msg {
+    padding: 20px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5em;
+    width: 90%;
+    max-width: 600px;
+}
+
+#msg-1 {
+    font-size: 6vh;
+    font-weight: 900;
+}
+
+#msg-2 {
+    font-size: 3vmin;
+    width: 90%;
+    max-width: 50ch;
+    margin: 0 auto;
+}
+
+#fullname-span {
+    background: -webkit-linear-gradient(#eee, #f05f5f);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+#email-span {
+    color: #f05f5f;
+}
+
+#ticket {
+    position: relative;
+    background-image: url('assets/images/pattern-ticket.svg');
+    background-size: contain;
+    background-repeat: no-repeat;
+    padding: 67px; /* Adjusted padding */
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* Align items to the start */
+    min-height: 100px;
+    width: 95%; /* Adjusted width */
+    max-width: 610px;
+    height: auto;
+    gap: 1em;
+    margin: 10px auto; /* Centered with margin auto */
+    box-sizing: border-box; /* Include padding and border in width */
+    margin-left:32%;
+}
+
+.ticket-items {
+    width: 100%; /* Ensure items take full width */
+    box-sizing: border-box; /* Include padding and border in width */
+}
+
+.ticket-avatar {
+    display: flex;
+    gap: 1em;
+    align-items: center;
+    width: 100%;
+    flex-wrap: wrap; /* Allow items to wrap on smaller screens */
+    box-sizing: border-box; /* Include padding and border in width */
+}
+
+.ticket-avatar img { /* Target the avatar image */
+    width: 50px; /* Set a fixed width for the avatar image */
+    height: 50px; /* Set a fixed height for the avatar image */
+    border-radius: 50%; /* Make it circular */
+    object-fit: cover; /* Prevent image distortion */
+}
+
+#ticket-num {
+    order: 2; /* Place ticket number last */
+    margin-left: auto; /* Push ticket number to the right */
+    font-size: 2vh;
+    color: #b4b4b4;
+    white-space: nowrap; /* Prevent number from wrapping */
+}
+
+#ticket-info { /* New container for name and email */
+    order: 1; /* Place info first */
+    flex-grow: 1; /* Allow info to take up available space */
+}
+
+#ticket-info p {
+    margin: 0; /* Remove default paragraph margins */
+}
+
+#ticket-info #fullname-span,
+#ticket-info #email-span{
+    font-size: 1.5vh;
+}
+
+#ticket-num {
+    font-size: 4vh;
+    order: 2; /* Ensure number is still last */
+    margin-left: auto;
+    white-space: nowrap;
+    transform: rotate(90deg);
+position: absolute;
+    right:30px;
+    top: 110px;
+
+}
+
+/* Media Query for smaller screens (e.g., mobile) */
+@media (max-width: 768px) {
+    #squiggly1, #squiggly2 {
+        display: none;
+     }
+    #ticket {
+        padding: 15px;
+        width: 98%;
+        margin: 10px auto;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.5em; /* Reduce gap */
+    }
+
+    .full-logo {
+        width: 70%;
+    }
+
+    #msg-1 {
+        font-size: 2.5vh;
+    }
+
+    #msg-2 {
+        font-size: 3vmin;
+    }
+
+    .ticket-avatar {
+        flex-direction: row; /* Back to row layout */
+        align-items: center;
+        flex-wrap: nowrap; /* Prevent wrapping */
+    }
+
+    .ticket-avatar img {
+        width: 40px; /* Smaller avatar */
+        height: 40px; /* Smaller avatar */
+    }
+
+    #ticket-num {
+        font-size: 4vh;
+        order: 2; /* Ensure number is still last */
+        margin-left: auto;
+        white-space: nowrap;
+        transform: rotate(90deg);
+        position: absolute;
+        left: 80%;
+        top: 37%;
+
+    }
+
+    #ticket-info {
+        order: 1; /* Ensure info is still first */
+        flex-grow: 1;
+    }
+    #ticket-info p {
+        font-size: 1.5vh;
+    }
+}
+
+/* Styles for very small screens */
+@media (max-width: 400px) {
+    #ticket-num {
+        font-size: 2vh;
+        top:60px;
+        right: 0px;
+    }
+
+    #msg-2 {
+        font-size: 2.5vmin;
+    }
+}
