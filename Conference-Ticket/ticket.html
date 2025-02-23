@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Ticket</title>
+    <link rel="stylesheet" href="ticket.css">
+</head>
+<body>
+    <main>
+        <img class="full-logo" src="assets\images\logo-full.svg" alt="">
+        <div id="ticket-content"></div>
+
+        <div id="ticket">
+            <div class="ticket-items">
+                <img class="full-logo2" src="assets\images\logo-full.svg" alt="">
+            </div>
+            <div class="ticket-avatar">
+            </div>
+
+            <div class="ticket-number"></div>
+        </div>
+    <img id="squiggly1" src="assets\images\pattern-squiggly-line-bottom-desktop.svg" alt="" srcset="">
+    <img id="squiggly2" src="assets\images\pattern-squiggly-line-top.svg" alt="" srcset="">
+   
+</main>
+
+    <script>
+        const urlParams = new URLSearchParams(window.location.search);
+        const fullName = urlParams.get('fullName');
+        const email = urlParams.get('email');
+        const github = urlParams.get('github');
+        const imageUrl = urlParams.get('imageUrl');
+        const ticketNumberParam = urlParams.get('ticketNumber');
+
+        const header = document.querySelector('header');
+        const ticketContent = document.getElementById('ticket-content');
+        const ticketItems = document.querySelector('.ticket-items');
+        const ticketAvatar = document.querySelector('.ticket-avatar');
+        const ticketNumber = document.querySelector('.ticket-number');
+
+        let ticketHTML = `
+            <div class="ticket-msg">
+                <p id="msg-1">Congrats, <span id="fullname-span">${fullName || "Guest"}</span>! <br> Your ticket is ready.</p>
+                <p id="msg-2">We've emailed your ticket to <span id="email-span">${email || "your email address"}</span> and will send updates in the run up to the event.</p>
+            </div>
+        `;
+
+        ticketContent.innerHTML = ticketHTML;
+
+        // Correct way to append date:
+        const dateElement = document.createElement('p'); // Create the <p> element
+        dateElement.textContent = "Jan 31 2025 / Austin, TX"; // Set the text content
+        dateElement.style.width = '35ch';
+        ticketItems.appendChild(dateElement); // Now append the element
+
+
+
+        if (imageUrl) {
+            const img = document.createElement('img');
+            img.src = decodeURIComponent(imageUrl);
+            img.alt = "Your Avatar";
+            img.style.maxWidth = "20%";
+            img.style.borderRadius = "10px";
+            ticketAvatar.appendChild(img);
+        }
+        const name = document.createElement('p'); // Create the <p> element
+        const userEmail = document.createElement('p'); // Create the <p> element
+        const breakEl = document.createElement('br'); // Create the <p> element
+        const ticketNum = document.createElement('p'); // Create the <p> element
+
+            name.textContent = fullName;
+            userEmail.textContent = email;
+            ticketNum.textContent = ticketNumberParam;
+            ticketNum.id = "ticket-num"
+            console.log(ticketNumberParam);
+        ticketAvatar.append(name)
+        ticketAvatar.append(breakEl)
+        ticketAvatar.append(email);
+        ticketNumber.append(ticketNum);
+          
+
+    </script>
+
+</body>
+</html>
